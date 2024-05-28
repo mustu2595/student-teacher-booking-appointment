@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Teacher Booking System</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://firebase.google.com/docs/web/setup#available-libraries"></script>
+    <script src="https://firebase.google.com/docs/web/setup#available-libraries"></script>
+    <script src="https://firebase.google.com/docs/web/setup#available-libraries-firestore.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Student-Teacher Booking System</h1>
+        
+        <div id="auth-container">
+            <div id="register-container">
+                <h2>Register</h2>
+                <input type="email" id="register-email" placeholder="Email">
+                <input type="password" id="register-password" placeholder="Password">
+                <button onclick="registerUser()">Register</button>
+            </div>
+            <div id="login-container">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email">
+                <input type="password" id="login-password" placeholder="Password">
+                <button onclick="loginUser()">Login</button>
+            </div>
+        </div>
+      
+        <div id="dashboard" style="display:none;">
+            <h2>Welcome, <span id="user-email"></span></h2>
+            <button onclick="logoutUser()">Logout</button>
+            <!-- Admin Section -->
+            <div id="admin-section" style="display:none;">
+                <h3>Admin Dashboard</h3>
+                <button onclick="showAddTeacherForm()">Add Teacher</button>
+                <div id="add-teacher-form" style="display:none;">
+                    <input type="text" id="teacher-name" placeholder="Name">
+                    <input type="text" id="teacher-department" placeholder="Department">
+                    <input type="text" id="teacher-subject" placeholder="Subject">
+                    <button onclick="addTeacher()">Add Teacher</button>
+                </div>
+                <button onclick="showStudentApprovals()">Approve Students</button>
+                <div id="student-approval-list" style="display:none;"></div>
+            </div>
+            
+            <div id="teacher-section" style="display:none;">
+                <h3>Teacher Dashboard</h3>
+                <button onclick="showScheduleAppointmentForm()">Schedule Appointment</button>
+                <div id="schedule-appointment-form" style="display:none;">
+                    <input type="datetime-local" id="appointment-time">
+                    <button onclick="scheduleAppointment()">Schedule</button>
+                </div>
+                <button onclick="showAppointments()">View Appointments</button>
+                <div id="appointment-list" style="display:none;"></div>
+            </div>
+           
+            <div id="student-section" style="display:none;">
+                <h3>Student Dashboard</h3>
+                <button onclick="showBookAppointmentForm()">Book Appointment</button>
+                <div id="book-appointment-form" style="display:none;">
+                    <input type="text" id="search-teacher" placeholder="Search Teacher">
+                    <button onclick="searchTeacher()">Search</button>
+                    <div id="teacher-list"></div>
+                </div>
+                <button onclick="showMessages()">View Messages</button>
+                <div id="message-list" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
